@@ -4,7 +4,7 @@ data CantFind a
   = ThrowExn
   | ReturnMaybe
   | DefaultTo a
-
+ 
 flexibleFind :: (a -> Bool) -> CantFind a -> [a] -> Maybe a
 flexibleFind pred whatToDo [] =
   case whatToDo of
