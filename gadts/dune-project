@@ -1,0 +1,12 @@
+(lang dune 2.7)
+(generate_opam_files true)
+(package
+ (name gadts)
+ (depends
+  (ocaml (>= 4.13.0))
+  dune
+  prelude
+  (utop :dev)
+  (ocamlformat :dev)
+  (ocp-index :dev)
+  (merlin :dev)))

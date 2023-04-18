@@ -1,0 +1,64 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.1.
+--
+-- see: https://github.com/sol/hpack
+
+name:           gadts
+version:        0.1.0.0
+description:    gadts
+build-type:     Simple
+extra-source-files:
+    README.md
+
+library
+  exposed-modules:
+      FindADT
+      FindGADT
+      Stringable
+      VanillaFind
+      Vec
+  other-modules:
+      Paths_gadts
+  hs-source-dirs:
+      src
+  default-extensions:
+      GADTs
+      DataKinds
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing
+  build-depends:
+      base >=4.7 && <5
+  default-language: GHC2021
+
+executable gadts-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  default-extensions:
+      GADTs
+      DataKinds
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , gadts
+  default-language: GHC2021
+
+test-suite gadts-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      LibSpec
+      Paths_gadts
+  hs-source-dirs:
+      test
+  default-extensions:
+      GADTs
+      DataKinds
+  ghc-options: -Wall -Wincomplete-record-updates -Wincomplete-uni-patterns -Wno-unused-top-binds -Wno-unused-local-binds -Wno-unused-pattern-binds -Wno-unused-matches -Wno-missing-signatures -Wno-type-defaults -Wno-compat-unqualified-imports -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , base >=4.7 && <5
+    , gadts
+    , hspec
+    , hspec-discover
+  default-language: GHC2021
