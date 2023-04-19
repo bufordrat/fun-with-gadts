@@ -14,6 +14,3 @@ data ActualGADT c d where
   ZeroaryAG :: ActualGADT a Char
   UnaryAG :: String -> ActualGADT a String
   BinaryAG :: Int -> Bool -> ActualGADT Int Bool
-
-defaultBoolList :: ActualGADT a Char -> Char
-defaultBoolList ZeroaryAG = 'a'
