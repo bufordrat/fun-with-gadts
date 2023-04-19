@@ -2,12 +2,6 @@ module FindGADT where
 
 import Data.Kind (Type)
 
--- agda here
--- data CantFind : Set -> Set -> Set where
---   ThrowExn : { a : Set } -> CantFind a a
---   ReturnMaybe : { a : Set } -> CantFind a (Maybe a)
---   DefaultTo : { a : Set } -> a -> CantFind a a
-
 data CantFind :: Type -> Type -> Type where
   ThrowExn :: CantFind a a
   ReturnMaybe :: CantFind a (Maybe a)

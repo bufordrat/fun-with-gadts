@@ -1,1 +1,1 @@
-let () = print_endline Lib.message
+let () = print_endline "dude"
