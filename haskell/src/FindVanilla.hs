@@ -1,4 +1,4 @@
-module VanillaFind where
+module FindVanilla where
 
 import Data.List (find)
 
