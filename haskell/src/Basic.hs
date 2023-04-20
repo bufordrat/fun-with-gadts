@@ -1,16 +1,22 @@
 module Basic where
 
-data NormalSum a b
-  = Zeroary
-  | Unary a
-  | Binary a b
+-- plain vanilla example
+-- data NormalSum a b
+--   = Zeroary
+--   | Unary a
+--   | Binary a b
+--   deriving (Show, Eq)
 
-data GADTSyntax a b where
-  ZeroaryGS :: GADTSyntax a b
-  UnaryGS :: a -> GADTSyntax a b
-  BinaryGS :: a -> b -> GADTSyntax a b
+-- same example using GADT syntax
+-- data NormalSum a b where
+--   Zeroary :: NormalSum a b
+--   Unary :: a -> NormalSum a b
+--   Binary :: a -> b -> NormalSum a b
+--   deriving (Show, Eq)
 
-data ActualGADT c d where
-  ZeroaryAG :: ActualGADT a Char
-  UnaryAG :: String -> ActualGADT a String
-  BinaryAG :: Int -> Bool -> ActualGADT Int Bool
+-- whoa, NOT SO NORMAL ANYMORE
+data NormalSum b c where
+  Zeroary :: NormalSum a Char
+  Unary :: String -> NormalSum a String
+  Binary :: Int -> Bool -> NormalSum Int Bool
+  deriving (Show, Eq)
