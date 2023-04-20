@@ -4,6 +4,7 @@ data Computer
   = Apple
   | IBM
   | Commodore
+  deriving (Show, Eq)
 
 onlyApples :: Computer -> IO ()
 onlyApples Apple =

@@ -44,18 +44,3 @@ executables:
     when:
     - condition: false
       other-modules: Paths_gadts
-
-tests:
-  gadts-test:
-    main:                Spec.hs
-    source-dirs:         test
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
-    dependencies:
-    - gadts
-    - hspec
-    - hspec-discover
-    - QuickCheck
-

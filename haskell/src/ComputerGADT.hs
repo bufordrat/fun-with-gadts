@@ -27,3 +27,4 @@ instance Show Apple where
 onlyApples :: Computer Apple -> IO ()
 onlyApples (A app) =
   putStrLn $ "It's an " <> show app <> "!"
+
