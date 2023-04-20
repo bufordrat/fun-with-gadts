@@ -19,4 +19,4 @@ data NormalSum b c where
   Zeroary :: NormalSum a Char
   Unary :: String -> NormalSum a String
   Binary :: Int -> Bool -> NormalSum Int Bool
-  deriving (Show, Eq)
+
