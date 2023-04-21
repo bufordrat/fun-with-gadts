@@ -1,8 +1,2 @@
-let message = "GADTs ahoy!"
-
-type void = |
-
-type (_,_) rat =
-  | Giraffe : int -> (_,int) rat
-  | Armadillo : (string,_) rat
-
+module Eval = Eval
+module Flexible_find = Flexible_find

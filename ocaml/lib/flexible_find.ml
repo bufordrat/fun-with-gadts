@@ -7,18 +7,21 @@ type (_, _) cantfind =
 
 let rec flexible_find
  : type a b. (a -> bool) -> (a, b) cantfind -> a list -> b =
- fun pred if_not_found list ->
-  match list with
-  | [] ->
-    (match if_not_found with
-    | ThrowExn -> failwith "No matching item found"
-    | ReturnMaybe -> None
-    | DefaultTo x -> x)
+  fun pred what_to_do lst ->
+  match lst with
+  | [] -> begin
+      match what_to_do with
+      | ThrowExn -> failwith "No matching item found"
+      | ReturnMaybe -> None
+      | DefaultTo x -> x
+    end
   | x :: xs ->
     if pred x
-    then (
-      match if_not_found with
-      | ThrowExn -> x
-      | ReturnMaybe -> Some x
-      | DefaultTo _ -> x)
-    else flexible_find pred if_not_found xs
+    then begin
+        match what_to_do with
+        | ThrowExn -> x
+        | ReturnMaybe -> Some x
+        | DefaultTo _ -> x
+      end
+    else flexible_find pred what_to_do xs
+
